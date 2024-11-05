@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subnetting-Aufgaben</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: teal;
+            text-align: center;
+        }
+        .task {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: teal;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .submit-button:hover {
+            background-color: darkslategray;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .task {
+                padding: 10px;
+            }
+            input {
+                padding: 6px;
+            }
+            .submit-button {
+                padding: 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+            input {
+                padding: 5px;
+            }
+            .submit-button {
+                padding: 7px;
+            }
+        }
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .result-entry {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Subnetting</h1>
+
+    <div class="task">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+
+        <p>1. Gegeben ist die IP-Adresse 176.54.77.12 mit der Subnetzmaske 255.255.255.128 (/25). Berechnen Sie die folgenden Werte:</p>
+        <label for="subnet1">Subnetz-Adresse:</label>
+        <input type="text" id="subnet1" name="subnet1" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+        
+        <label for="firsthost1">Erster Host:</label>
+        <input type="text" id="firsthost1" name="firsthost1" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+        
+        <label for="lasthost1">Letzter Host:</label>
+        <input type="text" id="lasthost1" name="lasthost1" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+        
+        <label for="broadcast1">Broadcast:</label>
+        <input type="text" id="broadcast1" name="broadcast1" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+    </div>
+
+    <div class="task">
+        <p>2. Gegeben ist die IP-Adresse 10.1.24.214. Es werden 132 Hosts und 87 Netze benötigt. Berechnen Sie:</p>
+        <label for="subnet2">Subnetz-Adresse:</label>
+        <input type="text" id="subnet2" name="subnet2" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+        
+        <label for="firsthost2">Erster Host:</label>
+        <input type="text" id="firsthost2" name="firsthost2" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+        
+        <label for="lasthost2">Letzter Host:</label>
+        <input type="text" id="lasthost2" name="lasthost2" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+        
+        <label for="broadcast2">Broadcast:</label>
+        <input type="text" id="broadcast2" name="broadcast2" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+    </div>
+
+    <div class="task">
+        <p>3. Gegeben ist die IP-Adresse 70.54.6.8 mit der Subnetzmaske 255.255.0.0. Es sollen 68 Hosts pro Subnetz und 513 Subnetze erstellt werden. Berechnen Sie:</p>
+        <label for="subnet3">Subnetz-Adresse:</label>
+        <input type="text" id="subnet3" name="subnet3" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+        
+        <label for="firsthost3">Erster Host:</label>
+        <input type="text" id="firsthost3" name="firsthost3" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+        
+        <label for="lasthost3">Letzter Host:</label>
+        <input type="text" id="lasthost3" name="lasthost3" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+        
+        <label for="broadcast3">Broadcast:</label>
+        <input type="text" id="broadcast3" name="broadcast3" pattern="[0-9.]*" title="Nur Punkte und Zahlen erlaubt" required>
+    </div>
+
+    <button class="submit-button" onclick="showResults()">Fertig</button>
+
+    <div id="results">
+        <h2>Ergebnisse</h2>
+    </div>
+
+    <script>
+        const resultsContainer = document.getElementById("results");
+        
+        function showResults() {
+            const name = document.getElementById("name").value;
+            const subnet1 = document.getElementById("subnet1").value;
+            const firsthost1 = document.getElementById("firsthost1").value;
+            const lasthost1 = document.getElementById("lasthost1").value;
+            const broadcast1 = document.getElementById("broadcast1").value;
+
+            const subnet2 = document.getElementById("subnet2").value;
+            const firsthost2 = document.getElementById("firsthost2").value;
+            const lasthost2 = document.getElementById("lasthost2").value;
+            const broadcast2 = document.getElementById("broadcast2").value;
+
+            const subnet3 = document.getElementById("subnet3").value;
+            const firsthost3 = document.getElementById("firsthost3").value;
+            const lasthost3 = document.getElementById("lasthost3").value;
+            const broadcast3 = document.getElementById("broadcast3").value;
+
+            // Ergebnisse in einer neuen Ergebnis-Box anzeigen
+            const resultEntry = document.createElement("div");
+            resultEntry.className = "result-entry";
+            resultEntry.innerHTML = `
+                <strong>Name:</strong> ${name}<br>
+                <strong>1. Subnetz-Adresse:</strong> ${subnet1}<br>
+                <strong>Erster Host:</strong> ${firsthost1}<br>
+                <strong>Letzter Host:</strong> ${lasthost1}<br>
+                <strong>Broadcast:</strong> ${broadcast1}<br>
+                <strong>2. Subnetz-Adresse:</strong> ${subnet2}<br>
+                <strong>Erster Host:</strong> ${firsthost2}<br>
+                <strong>Letzter Host:</strong> ${lasthost2}<br>
+                <strong>Broadcast:</strong> ${broadcast2}<br>
+                <strong>3. Subnetz-Adresse:</strong> ${subnet3}<br>
+                <strong>Erster Host:</strong> ${firsthost3}<br>
+                <strong>Letzter Host:</strong> ${lasthost3}<br>
+                <strong>Broadcast:</strong> ${broadcast3}<br>
+            `;
+            resultsContainer.appendChild(resultEntry);
+
+            // Eingabefelder zurücksetzen
+            document.getElementById("name").value = '';
+            document.getElementById("subnet1").value = '';
+            document.getElementById("firsthost1").value = '';
+            document.getElementById("lasthost1").value = '';
+            document.getElementById("broadcast1").value = '';
+            document.getElementById("subnet2").value = '';
+            document.getElementById("firsthost2").value = '';
+            document.getElementById("lasthost2").value = '';
+            document.getElementById("broadcast2").value = '';
+            document.getElementById("subnet3").value = '';
+            document.getElementById("firsthost3").value = '';
+            document.getElementById("lasthost3").value = '';
+            document.getElementById("broadcast3").value = '';
+        }
+    </script>
+
+</body>
+</html>
